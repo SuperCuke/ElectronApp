@@ -6,15 +6,14 @@ import styles from './Home.css';
 
 type Props = {};
 
-export default class Home extends Component<Props> {
+export default class ScriptSb extends Component<Props> {
   props: Props;
 
   render() {
     return (
       <div className={styles.container} data-tid="container">
-        <h2>Home235</h2>
+        <h2>New mega page</h2>
         <Link to={routes.COUNTER}>to Counter</Link>
-        <Link to={routes.SCRIPTSB}>to Script sandbox</Link>
       </div>
     );
   }
