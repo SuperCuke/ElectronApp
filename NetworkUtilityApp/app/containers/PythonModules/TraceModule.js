@@ -2,14 +2,14 @@
 import React, { Component } from 'react';
 import BasePythonModule from './BasePythonModule';
 
-export default class PingModule extends BasePythonModule {
+export default class TraceModule extends BasePythonModule {
   constructor() {
-    super('Ping', 'Allows to ping remote servers')
+    super('Trace', 'Allows to trace servers')
   }
 
   render() {
     return <div>
-      <h1>I am Ping module</h1>
+      <h1>I am Trace module</h1>
     </div>;
   }
 }

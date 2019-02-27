@@ -5,6 +5,7 @@ import App from './containers/App';
 import HomePage from './containers/HomePage';
 import CounterPage from './containers/CounterPage';
 import ScriptSbPage from './containers/ScriptSbPage';
+import ModulePage from './containers/ModulePage';
 
 export default () => (
   <App> 
@@ -12,6 +13,7 @@ export default () => (
       <Route path={routes.COUNTER} exact component={CounterPage} /> 
       <Route path={routes.SCRIPTSB} exact component={ScriptSbPage} />
       <Route path={routes.HOME} exact component={HomePage} />
+      <Route path={routes.MODULES} component={ModulePage} />
       <Route path="/" component={HomePage} /> 
     </Switch>
   </App> 

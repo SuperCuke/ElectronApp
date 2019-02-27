@@ -1,5 +1,4 @@
 var pShell = require('python-shell')
-debugger;
 
 export var ExecuteScript = function (name, callback) {
 

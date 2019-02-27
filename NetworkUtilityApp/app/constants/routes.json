@@ -1,5 +1,6 @@
 {
   "HOME": "/home",
   "COUNTER": "/counter",
-  "SCRIPTSB": "/scriptsb"
+  "SCRIPTSB": "/scriptsb",
+  "MODULES": "/modules/:id"
 }
