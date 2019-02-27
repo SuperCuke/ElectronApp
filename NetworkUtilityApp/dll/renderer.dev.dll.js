@@ -111,6 +111,18 @@ eval("module.exports = @fortawesome/fontawesome-free;\n\n//# sourceURL=webpack:/
 
 /***/ }),
 
+/***/ "bootstrap-material-design":
+/*!********************************************!*\
+  !*** external "bootstrap-material-design" ***!
+  \********************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("module.exports = bootstrap-material-design;\n\n//# sourceURL=webpack://renderer/external_%22bootstrap-material-design%22?");
+
+/***/ }),
+
 /***/ "connected-react-router":
 /*!*****************************************!*\
   !*** external "connected-react-router" ***!
@@ -180,6 +192,30 @@ eval("module.exports = electron-updater;\n\n//# sourceURL=webpack://renderer/ext
 /***/ (function(module, exports) {
 
 eval("module.exports = history;\n\n//# sourceURL=webpack://renderer/external_%22history%22?");
+
+/***/ }),
+
+/***/ "jquery":
+/*!*************************!*\
+  !*** external "jquery" ***!
+  \*************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("module.exports = jquery;\n\n//# sourceURL=webpack://renderer/external_%22jquery%22?");
+
+/***/ }),
+
+/***/ "popper":
+/*!*************************!*\
+  !*** external "popper" ***!
+  \*************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("module.exports = popper;\n\n//# sourceURL=webpack://renderer/external_%22popper%22?");
 
 /***/ }),
 
