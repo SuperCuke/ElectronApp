@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes';
 import styles from './Home.css';
-
+import * as ModuleService from '../services/ModuleService';
 
 type Props = {};
 
@@ -11,18 +11,20 @@ export default class Home extends Component<Props> {
   props: Props;
   constructor() {
     super();
-    var supportedModuleIds = ['PingModule', 'TraceModule'];
 
-    var supportedModules = supportedModuleIds.map(m => {
-      var module = require('../containers/PythonModules/' + m);
-      var instance = new module.default();
-
-      return {
+    var supportedModules = [];
+    var componentList = ModuleService.GetSupportedModules();
+    for (var componentName in componentList) {
+      var component = componentList[componentName];
+      var instance = new component();
+      supportedModules.push({ 
         name: instance.name,
         description: instance.description,
-        link: '/modules/' + m
-      }
-    });
+        link: '/modules/' + componentName
+      });
+    }
+
+    debugger;
 
     this.state = { supportedModules: supportedModules };
   }
@@ -32,6 +34,8 @@ export default class Home extends Component<Props> {
     return (
       <div> 
         <h1>Modules dashboard</h1>
+        <br />
+        <Link to="/Configuration">Configuration</Link>
         <br />
         <table className="table">
           <thead>

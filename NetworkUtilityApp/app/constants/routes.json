@@ -1,6 +1,7 @@
 {
   "HOME": "/home",
   "COUNTER": "/counter",
+  "CONFIGURATION": "/Configuration",
   "SCRIPTSB": "/scriptsb",
   "MODULES": "/modules/:id"
 }

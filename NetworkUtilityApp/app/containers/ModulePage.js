@@ -2,8 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import PingModule from './PythonModules/PingModule';
-import TraceModule from './PythonModules/TraceModule';
+import * as ModuleService from '../services/ModuleService';
 
 type Props = {};
 
@@ -11,10 +10,7 @@ export default class ModulePage extends Component<Props> {
   props: Props;
 
   render() {
-    var componentList = {
-      PingModule: PingModule,
-      TraceModule: TraceModule
-    };
+    var componentList = ModuleService.GetSupportedModules();
 
     var ChildComponent = componentList[this.props.match.params.id];
 
