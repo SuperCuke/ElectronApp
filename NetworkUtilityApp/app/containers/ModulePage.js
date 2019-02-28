@@ -14,10 +14,7 @@ export default class ModulePage extends Component<Props> {
 
     var ChildComponent = componentList[this.props.match.params.id];
 
-    return <div>
-      <br />
-      <Link to="/home">Home</Link>
-      <br />
+    return <div className="container">
       <ChildComponent />
     </div>;
   }

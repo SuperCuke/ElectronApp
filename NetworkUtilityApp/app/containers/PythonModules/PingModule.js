@@ -28,18 +28,27 @@ export default class PingModule extends BasePythonModule {
   }
 
   render() {
-    return <div>
-      <h1>I am Ping module</h1>
-        <div className="form-group">
-          <label>IP address</label>
-          <input type="text" className="form-control" id="sampleIp" placeholder="Enter IP" value={this.state.ip} onChange={(event) => this.setState({ ip: event.target.value })} />
-        </div>
-        <button type="button" onClick={this.submitForm} className="btn btn-primary">Submit</button>
-        <div className="form-group">
-          <textarea rows="5" disabled="disabled" value={this.state.output} />
-          <br />
-          <span>{this.state.error}</span>
-        </div>   
+    return <div className="col-md-6">
+      <div class="row"><h1>Ping module</h1></div>
+      <br />
+      <div className="row">
+
+        <label for="firstName">IP address</label>
+        <input type="text" className="form-control" id="sampleIp" placeholder="Enter IP" value={this.state.ip} onChange={(event) => this.setState({ ip: event.target.value })} />
+      </div>
+      <br />
+      <div className="row">
+        <hr className="mb-4" />
+        <button className="btn btn-primary btn-lg btn-block" type="button" onClick={this.submitForm}>Execute</button>
+
+      </div>
+      <br />  <br />
+      <div className="row">
+        <label for="firstName">Script ouput</label>
+        <textarea rows="5" className="form-control" disabled="disabled" value={this.state.output} />
+        <br />
+        <span>{this.state.error}</span>
+      </div>
     </div>;
   }
 }

@@ -32,11 +32,13 @@ export default class Home extends Component<Props> {
   render() {
 
     return (
-      <div> 
-        <h1>Modules dashboard</h1>
+      <div className="container">
+        <div className="row">
+          <h1>Modules dashboard</h1>
+        </div>
         <br />
-        <Link to="/Configuration">Configuration</Link>
-        <br />
+        <div className="row">
+        <h3>Supported Modules</h3>
         <table className="table">
           <thead>
             <tr>
@@ -54,7 +56,8 @@ export default class Home extends Component<Props> {
               );
             })}
           </tbody>
-        </table>
+          </table>
+        </div>
       </div>
     );
   }

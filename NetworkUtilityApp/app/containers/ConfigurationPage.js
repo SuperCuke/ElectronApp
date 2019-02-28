@@ -40,33 +40,37 @@ export default class ConfigurationPage extends Component<Props> {
 
   render() {
 
-    return <div>
-      <br />
-      <Link to="/home">Home</Link>
-      <br />
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Hide component</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.state.Configurations.map((item, i) => {
-            return (
-              <tr key={i}>
-                <td>{item.name}</td>
-                <td> <input
-                  type="checkbox"
-                  checked={item.isHidden}
-                  onChange={(event) => { item.isHidden = event.target.checked; this.setState({ Configurations: this.state.Configurations }); }} />
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <button type="button" onClick={this.submitForm} className="btn btn-primary">Save configuration</button>
+    return <div className="container">
+      <div className="row">
+        <h1>Configuration</h1>
+      </div>
+      <div className="row">
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Hide component</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.Configurations.map((item, i) => {
+              return (
+                <tr key={i}>
+                  <td>{item.name}</td>
+                  <td> <input
+                    type="checkbox"
+                    checked={item.isHidden}
+                    onChange={(event) => { item.isHidden = event.target.checked; this.setState({ Configurations: this.state.Configurations }); }} />
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div className="row">
+        <button type="button" onClick={this.submitForm} className="btn btn-primary">Save configuration</button>
+      </div>
     </div>;
   }
 }

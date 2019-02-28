@@ -9,6 +9,13 @@ import ModulePage from './containers/ModulePage';
 import ConfigurationPage from './containers/ConfigurationPage';
 
 export default () => (
+  <div>
+    <div class="nav-scroller mb-2">
+      <nav class="nav d-flex">
+        <a class="p-2 text-muted" href="#/home">Home</a>
+        <a class="p-2 text-muted" href="#/configuration">Configuration</a>
+      </nav>
+    </div>
   <App> 
     <Switch> 
       <Route path={routes.COUNTER} exact component={CounterPage} /> 
@@ -18,5 +25,6 @@ export default () => (
       <Route path={routes.MODULES} component={ModulePage} />
       <Route path="/" component={HomePage} /> 
     </Switch>
-  </App> 
+  </App>
+  </div>
 );
