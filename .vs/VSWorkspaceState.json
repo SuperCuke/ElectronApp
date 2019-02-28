@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\NetworkUtility",
-    "\\NetworkUtility\\app"
+    "\\NetworkUtilityApp"
   ],
-  "SelectedNode": "\\NetworkUtility\\app\\index.js",
+  "SelectedNode": "\\NetworkUtilityApp\\python",
   "PreviewInSolutionExplorer": false
 }
