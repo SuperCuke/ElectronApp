@@ -1,15 +1,19 @@
 import PingModule from '../containers/PythonModules/PingModule';
 import TraceModule from '../containers/PythonModules/TraceModule';
 import CiscoConfigBackupCLIModule from '../containers/PythonModules/CiscoConfigBackupCLIModule';
+import CiscoSwitchInventoryCollectorCLIModule from '../containers/PythonModules/CiscoSwitchInventoryCollectorCLIModule';
+import CiscoSwitchShowCommandsCLIModule from '../containers/PythonModules/CiscoSwitchShowCommandsCLIModule';
+import TextFSMCLIModule from '../containers/PythonModules/TextFSMCLIModule';
 
 import * as ConfigurationService from '../services/ConfigurationService';
 
 
 export var GetAllModules = function () {
   return {
-    PingModule: PingModule,
-    TraceModule: TraceModule,
-    CiscoConfigBackupCLIModule: CiscoConfigBackupCLIModule
+    CiscoConfigBackupCLIModule: CiscoConfigBackupCLIModule,
+    CiscoSwitchInventoryCollectorCLIModule: CiscoSwitchInventoryCollectorCLIModule,
+    CiscoSwitchShowCommandsCLIModule: CiscoSwitchShowCommandsCLIModule,
+    TextFSMCLIModule: TextFSMCLIModule
   };
 }
 

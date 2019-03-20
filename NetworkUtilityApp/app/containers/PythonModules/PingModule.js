@@ -29,7 +29,7 @@ export default class PingModule extends BasePythonModule {
 
   render() {
     return <div className="col-md-6">
-      <div class="row"><h1>Ping module</h1></div>
+      <div className="row"><h1>Ping module</h1></div>
       <br />
       <div className="row">
 

@@ -98,7 +98,10 @@
       "buildResources": "resources",
       "output": "release"
     },
-    "extraResources": "python",
+    "extraResources": [
+      "python",
+      "executables"
+    ],
     "extraFiles": [
       "python",
       "executables"
