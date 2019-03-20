@@ -100,7 +100,8 @@
     },
     "extraResources": "python",
     "extraFiles": [
-      "python"
+      "python",
+      "executables"
     ],
     "publish": {
       "provider": "github",

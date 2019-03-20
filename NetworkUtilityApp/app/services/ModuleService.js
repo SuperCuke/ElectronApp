@@ -1,5 +1,6 @@
 import PingModule from '../containers/PythonModules/PingModule';
 import TraceModule from '../containers/PythonModules/TraceModule';
+import CiscoConfigBackupCLIModule from '../containers/PythonModules/CiscoConfigBackupCLIModule';
 
 import * as ConfigurationService from '../services/ConfigurationService';
 
@@ -7,7 +8,8 @@ import * as ConfigurationService from '../services/ConfigurationService';
 export var GetAllModules = function () {
   return {
     PingModule: PingModule,
-    TraceModule: TraceModule
+    TraceModule: TraceModule,
+    CiscoConfigBackupCLIModule: CiscoConfigBackupCLIModule
   };
 }
 
