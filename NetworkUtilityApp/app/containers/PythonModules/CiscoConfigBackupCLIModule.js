@@ -14,18 +14,18 @@ export default class CiscoConfigBackupCLIModule extends BasePythonModule {
       error: '',
       directory: '',
       parallelSessions: '',
+      ips : '',
       output: ''
     };
   }
 
   submitForm = () => {
-    debugger;
-    var ip = this.state.ip;
-    PythonService.ExecuteScript('test.py', [ip], (response, error) => {
-      if (error)
-        this.setState({ error: error });
-      else
-        this.setState({ output: response });
+    this.setState({ output: '' });
+
+    var params = ['--parallel-sessions ' + this.state.parallelSessions, this.state.username, this.state.password, '"' + this.state.directory + '"', this.state.ips.replace(/\n/g, ' ')];
+     
+    ExeService.ExecuteExe('CiscoConfigBackupCLI.exe', params, outputLine => {
+      this.setState({ output: this.state.output + '\n' + outputLine });
     });
 
     return false;
@@ -34,7 +34,7 @@ export default class CiscoConfigBackupCLIModule extends BasePythonModule {
 
   render() {
 
-    return <div className="col-md-6">
+    return <div className="col-md-12">
       <div className="row"><h1>CiscoConfigBackupCLIModule</h1></div>
       <br />
       <div className="form-group">
@@ -54,13 +54,17 @@ export default class CiscoConfigBackupCLIModule extends BasePythonModule {
         <input type="number" className="form-control" id="" placeholder="Enter Session number" value={this.state.parallelSessions} onChange={(event) => this.setState({ parallelSessions: event.target.value })} />
       </div>
       <div className="form-group">
-        <hr className="mb-4" /> 
+        <label>Switch IPs</label>
+        <textarea className="form-control" rows="5" value={this.state.ips} onChange={(event) => this.setState({ ips: event.target.value })}></textarea>
+      </div>
+      <br />
+      <div className="form-group">
+        <hr className="mb-4" />
         <button className="btn btn-primary btn-lg btn-block" type="button" onClick={this.submitForm}>Execute</button>
       </div>
-      <br /> 
       <div className="form-group">
         <label for="firstName">Script ouput</label>
-        <textarea rows="5" className="form-control" disabled="disabled" value={this.state.output} />
+        <textarea rows="30" className="form-control" disabled="disabled" value={this.state.output} />
         <br />
         <span>{this.state.error}</span>
       </div>
