@@ -10,10 +10,10 @@ import ConfigurationPage from './containers/ConfigurationPage';
 
 export default () => (
   <div>
-    <div class="nav-scroller mb-2">
-      <nav class="nav d-flex">
-        <a class="p-2 text-muted" href="#/home">Home</a>
-        <a class="p-2 text-muted" href="#/configuration">Configuration</a>
+    <div className="nav-scroller mb-2">
+      <nav className="nav d-flex">
+        <a className="p-2 text-muted" href="#/home">Home</a>
+        <a className="p-2 text-muted" href="#/configuration">Configuration</a>
       </nav>
     </div>
   <App> 
