@@ -38,7 +38,7 @@ export default class Home extends Component<Props> {
         </div>
         <br />
         <div className="row">
-        <h3>Supported Modules</h3>
+        <h3>Favorite Modules</h3>
         <table className="table">
           <thead>
             <tr>

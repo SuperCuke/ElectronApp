@@ -4,10 +4,14 @@ import { stringify } from 'querystring';
 var configuration = null;
 try {
   configuration = JSON.parse(fs.readFileSync('configuration.json'));
+  configuration.favoriteModules = onfiguration.favoriteModules || [];
 }
 catch (e) {
   configuration = {
-    hideModules: []
+    favoriteModules: [],
+    username : '',
+    password: '',
+    parallelSessions: ''
   };
 }
 

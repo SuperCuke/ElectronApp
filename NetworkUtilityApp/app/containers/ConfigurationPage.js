@@ -23,16 +23,25 @@ export default class ConfigurationPage extends Component<Props> {
       var instance = new component();
       this.state.Configurations.push({
         name: instance.name,
-        isHidden: configuration.hideModules.indexOf(componentName) != -1,
+        isFavorite: configuration.favoriteModules.indexOf(componentName) != -1,
         id: componentName
       });
     }
+
+    this.state.username = configuration.username;
+    this.state.password = configuration.password;
+    this.state.parallelSessions = configuration.parallelSessions;
   }
   submitForm = () => {
     debugger;
 
     var configuration = ConfigurationService.GetConfiguration();
-    configuration.hideModules = this.state.Configurations.filter(c => c.isHidden).map(c => c.id);
+    configuration.favoriteModules = this.state.Configurations.filter(c => c.isFavorite).map(c => c.id);
+
+    configuration.username = this.state.username;
+    configuration.password = this.state.password;
+    configuration.parallelSessions = this.state.parallelSessions;
+
     ConfigurationService.SaveConfiguration(configuration);
     return false;
   }
@@ -41,15 +50,34 @@ export default class ConfigurationPage extends Component<Props> {
   render() {
 
     return <div className="container">
+
       <div className="row">
-        <h1>Configuration</h1>
+        <h2>Default configuration</h2>
+      </div>
+      <br/>
+        <div className="form-group">
+          <label htmlFor="firstName">Username</label>
+          <input type="text" className="form-control" id="" placeholder="Enter Username" value={this.state.username} onChange={(event) => this.setState({ username: event.target.value })} />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="firstName">Password</label>
+          <input type="password" className="form-control" id="" placeholder="Enter Password" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value })} />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="firstName">Parallel sessions</label>
+          <input type="number" className="form-control" id="" placeholder="Enter Session number" value={this.state.parallelSessions} onChange={(event) => this.setState({ parallelSessions: event.target.value })} />
+        </div>
+      <div className="row">
+        <h2>Favorite components</h2>
       </div>
       <div className="row">
         <table className="table">
           <thead>
             <tr>
               <th scope="col">Name</th>
-              <th scope="col">Hide component</th>
+              <th scope="col">Favorite</th>
             </tr>
           </thead>
           <tbody>
@@ -59,8 +87,8 @@ export default class ConfigurationPage extends Component<Props> {
                   <td>{item.name}</td>
                   <td> <input
                     type="checkbox"
-                    checked={item.isHidden}
-                    onChange={(event) => { item.isHidden = event.target.checked; this.setState({ Configurations: this.state.Configurations }); }} />
+                    checked={item.isFavorite}
+                    onChange={(event) => { item.isFavorite = event.target.checked; this.setState({ Configurations: this.state.Configurations }); }} />
                   </td>
                 </tr>
               );
@@ -68,16 +96,17 @@ export default class ConfigurationPage extends Component<Props> {
           </tbody>
         </table>
       </div>
+
       <div className="row">
         <button type="button" onClick={this.submitForm} className="btn btn-primary">Save configuration</button>
       </div>
-    </div>;
+    </div>
   }
 }
 
 //class ConfigurationElement {
-//  constructor(name, isHidden) {
+//  constructor(name, isFavorite) {
 //    this.name = name;
-//    this.isHidden = isHidden;
+//    this.isFavorite = isFavorite;
 //  }
 //}

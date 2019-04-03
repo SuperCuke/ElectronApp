@@ -23,7 +23,7 @@ export var GetSupportedModules = function () {
   debugger;
   var configuration = ConfigurationService.GetConfiguration();
   var allModules = GetAllModules();
-  var keys = Object.keys(allModules).filter(f => configuration.hideModules.indexOf(f) == -1);
+  var keys = Object.keys(allModules).filter(f => configuration.favoriteModules.indexOf(f) != -1);
   keys.forEach((k) => rez[k] = allModules[k]);
   return rez;
 }

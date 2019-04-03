@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import BasePythonModule from './BasePythonModule';
+import FormDefaultComponent from '../../components/FormDefaultComponent';
 
 var ExeService = require('../../services/ExecutableService')
 
@@ -45,22 +46,13 @@ export default class CiscoSwitchInventoryCollectorCLIModule extends BasePythonMo
     return <div className="col-md-12">
       <div className="row"><h1>CiscoSwitchInventoryCollectorCLI</h1></div>
       <br />
+      <FormDefaultComponent label="Username" property="username" inputType="text" onChange={(newValue) => this.setState({ username: newValue })} />
+      <FormDefaultComponent label="Password" property="password" inputType="password" onChange={(newValue) => this.setState({ password: newValue })} />
       <div className="form-group">
-        <label for="firstName">Username</label>
-        <input type="text" className="form-control" id="" placeholder="Enter Username" value={this.state.username} onChange={(event) => this.setState({ username: event.target.value })} />
-      </div>
-      <div className="form-group">
-        <label for="firstName">Password</label>
-        <input type="password" className="form-control" id="" placeholder="Enter Password" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value })} />
-      </div>
-      <div className="form-group">
-        <label for="">Output folder</label>
+        <label htmlFor="">Output folder</label>
         <input type="file" className="form-control-file" directory="" webkitdirectory="" onChange={(event) => this.setState({ directory: event.target.files[0].path })} />
       </div>
-      <div className="form-group">
-        <label for="firstName">Parallel sessions</label>
-        <input type="number" className="form-control" id="" placeholder="Enter Session number" value={this.state.parallelSessions} onChange={(event) => this.setState({ parallelSessions: event.target.value })} />
-      </div>
+      <FormDefaultComponent label="Parallel sessions" property="parallelSessions" inputType="number" onChange={(newValue) => this.setState({ parallelSessions: newValue })} />
       <div className="form-group">
         <label>Switch IPs</label>
         <textarea className="form-control" rows="5" value={this.state.ips} onChange={(event) => this.setState({ ips: event.target.value })}></textarea>
@@ -71,7 +63,7 @@ export default class CiscoSwitchInventoryCollectorCLIModule extends BasePythonMo
         <button className="btn btn-primary btn-lg btn-block" type="button" onClick={this.submitForm}>Execute</button>
       </div>
       <div className="form-group">
-        <label for="firstName">Script ouput</label>
+        <label htmlFor="firstName">Script ouput</label>
         <textarea rows="30" className="form-control" disabled="disabled" value={this.state.output} />
         <br />
         <span>{this.state.error}</span>
