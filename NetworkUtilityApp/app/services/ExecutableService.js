@@ -14,6 +14,8 @@ export var ExecuteExe = function (name, args, callback) {
 
     var fullPath = basePath + 'executables\\' + name;
 
+    fullPath = fullPath.replace(/\\/g, '\/');
+
     const proc = spawn(fullPath, args);
 
     proc.stdout.on('data', (data) => {

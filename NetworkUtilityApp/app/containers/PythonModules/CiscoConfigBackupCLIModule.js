@@ -22,7 +22,14 @@ export default class CiscoConfigBackupCLIModule extends BasePythonModule {
   submitForm = () => {
     try {
       this.setState({ output: '' });
-      var params = ['--parallel-sessions ' + this.state.parallelSessions, this.state.username, this.state.password, '"' + this.state.directory + '"', this.state.ips.replace(/\n/g, ' ')];
+      var switchIps = this.state.ips.split(/\n/g);
+      var params = [
+        '--parallel-sessions',
+        this.state.parallelSessions,
+        this.state.username,
+        this.state.password,
+        '"' + this.state.directory + '"'];
+      params = params.concat(switchIps);
 
       ExeService.ExecuteExe('CiscoConfigBackupCLI.exe', params, outputLine => {
         this.state.output= this.state.output + '\n' + outputLine;
@@ -49,7 +56,7 @@ export default class CiscoConfigBackupCLIModule extends BasePythonModule {
       </div>
       <div className="form-group">
         <label htmlFor="firstName">Password</label>
-        <input type="text" className="form-control" id="" placeholder="Enter Password" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value })} />
+        <input type="password" className="form-control" id="" placeholder="Enter Password" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value })} />
       </div>
       <div className="form-group">
         <label htmlFor="">Output folder</label>

@@ -1,7 +1,0 @@
-(MainThread) Starting
-(MainThread) Device count: 2
-(MainThread) Output folder: 
-(MainThread) Parallel sessions: 10
-(Thread-1  ) Working on device 1 of 2
-(Thread-2  ) Working on device 2 of 2
-(MainThread) Finished Working

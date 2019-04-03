@@ -3,13 +3,14 @@
     "",
     "\\NetworkUtilityApp",
     "\\NetworkUtilityApp\\app",
+    "\\NetworkUtilityApp\\app\\constants",
     "\\NetworkUtilityApp\\app\\containers",
     "\\NetworkUtilityApp\\app\\containers\\PythonModules",
-    "\\NetworkUtilityApp\\app\\dist",
     "\\NetworkUtilityApp\\app\\services",
-    "\\NetworkUtilityApp\\configs",
-    "\\NetworkUtilityApp\\python"
+    "\\NetworkUtilityApp\\executables",
+    "\\NetworkUtilityApp\\qq",
+    "\\NetworkUtilityApp\\qq\\configs"
   ],
-  "SelectedNode": "\\NetworkUtilityApp\\python\\test.py",
+  "SelectedNode": "\\NetworkUtilityApp\\app\\services\\ModuleService.js",
   "PreviewInSolutionExplorer": false
 }

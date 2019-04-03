@@ -23,8 +23,16 @@ export default class CiscoSwitchShowCommandsCLIModule extends BasePythonModule {
   submitForm = () => {
     this.setState({ output: '' });
 
-    var params = ['--parallel-sessions ' + this.state.parallelSessions, this.state.username, this.state.password, '"' + this.state.directory + '"', '"' + this.state.commands.replace(/\n/g, ';') + '"', this.state.ips.replace(/\n/g, ' ')];
-     
+    var switchIps = this.state.ips.split(/\n/g);
+    var params = [
+      '--parallel-sessions',
+      this.state.parallelSessions,
+      this.state.username,
+      this.state.password,
+      '"' + this.state.directory + '"',
+      '"' + this.state.commands.replace(/\n/g, ';') + '"'];
+    params = params.concat(switchIps);
+
     ExeService.ExecuteExe('CiscoSwitchShowCommandsCLI.exe', params, outputLine => {
       this.state.output = this.state.output + '\n' + outputLine;
       this.setState(this.state);
@@ -45,7 +53,7 @@ export default class CiscoSwitchShowCommandsCLIModule extends BasePythonModule {
       </div>
       <div className="form-group">
         <label for="firstName">Password</label>
-        <input type="text" className="form-control" id="" placeholder="Enter Password" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value })} />
+        <input type="password" className="form-control" id="" placeholder="Enter Password" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value })} />
       </div>
       <div className="form-group">
         <label for="">Output folder</label>
