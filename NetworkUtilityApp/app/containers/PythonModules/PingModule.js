@@ -6,7 +6,7 @@ var PythonService = require('../../services/PythonService')
 
 export default class PingModule extends BasePythonModule {
   constructor() {
-    super('Ping', 'Allows to ping remote servers')
+    super('Ping', 'Allows to ping remote servers', 'create')
     this.state = {
       ip: '192.168.0.1',
       output: '',

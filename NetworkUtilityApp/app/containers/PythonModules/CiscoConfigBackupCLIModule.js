@@ -9,7 +9,7 @@ var ExeService = require('../../services/ExecutableService')
 
 export default class CiscoConfigBackupCLIModule extends BasePythonModule {
   constructor() {
-    super('CiscoConfigBackupCLI', 'Backup of Configuration from Switches')
+    super('CiscoConfigBackupCLI', 'Backup of Configuration from Switches', 'create')
     this.state = {
       username: '',
       password: '',

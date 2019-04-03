@@ -1,5 +1,8 @@
 {
   "HOME": "/home",
+  "ANALYSIS": "/analysis",
+  "CREATE": "/create",
+  "CHANGE": "/change",
   "COUNTER": "/counter",
   "CONFIGURATION": "/configuration",
   "SCRIPTSB": "/scriptsb",

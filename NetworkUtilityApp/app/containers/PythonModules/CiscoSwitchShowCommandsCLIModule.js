@@ -8,7 +8,7 @@ var ExeService = require('../../services/ExecutableService')
 
 export default class CiscoSwitchShowCommandsCLIModule extends BasePythonModule {
   constructor() {
-    super('CiscoSwitchShowCommandsCLI', 'Cisco Swich Inventory Collector')
+    super('CiscoSwitchShowCommandsCLI', 'Cisco Swich Inventory Collector', 'change')
     this.state = {
       username: '',
       password: '',

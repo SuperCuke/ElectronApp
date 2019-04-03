@@ -6,7 +6,7 @@ var ExeService = require('../../services/ExecutableService')
 
 export default class TextFSMCLIModule extends BasePythonModule {
   constructor() {
-    super('TextFSMCLI', 'TextFSM CLI Tool')
+    super('TextFSMCLI', 'TextFSM CLI Tool', 'change')
     this.state = {
       templatePath: '',
       inputFolder: '',

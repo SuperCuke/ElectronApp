@@ -12,6 +12,7 @@ export default class ConfigurationPage extends Component<Props> {
 
   constructor() {
     super();
+    
     var componentList = ModuleService.GetAllModules();
     var configuration = ConfigurationService.GetConfiguration();
 

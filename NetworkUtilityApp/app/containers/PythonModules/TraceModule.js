@@ -4,7 +4,7 @@ import BasePythonModule from './BasePythonModule';
 
 export default class TraceModule extends BasePythonModule {
   constructor() {
-    super('Trace', 'Allows to trace servers')
+    super('Trace', 'Allows to trace servers', 'create')
   }
 
   render() {

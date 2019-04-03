@@ -10,7 +10,7 @@ export default class ModulePage extends Component<Props> {
   props: Props;
 
   render() {
-    var componentList = ModuleService.GetSupportedModules();
+    var componentList = ModuleService.GetAllModules();
 
     var ChildComponent = componentList[this.props.match.params.id];
 

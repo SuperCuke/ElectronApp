@@ -4,27 +4,33 @@ import { Link } from 'react-router-dom';
 import routes from '../constants/routes';
 import styles from './Home.css';
 import * as ModuleService from '../services/ModuleService';
+import * as ConfigurationService from '../services/ConfigurationService';
 
 type Props = {};
 
-export default class Home extends Component<Props> {
+export default class ModuleListComponent extends Component<Props> {
   props: Props;
-  constructor() {
+  constructor(props) {
     super();
-
+    debugger;
     var supportedModules = [];
-    var componentList = ModuleService.GetSupportedModules();
+    var componentList = ModuleService.GetAllModules();
+    var configuration = ConfigurationService.GetConfiguration();
+
     for (var componentName in componentList) {
       var component = componentList[componentName];
       var instance = new component();
-      supportedModules.push({ 
+
+      if (props.category && props.category != instance.category) continue;
+      if (props.onlyFavorite && configuration.favoriteModules.indexOf(componentName) == -1) continue;
+
+      supportedModules.push({
         name: instance.name,
         description: instance.description,
         link: '/modules/' + componentName
       });
-    }
 
-    debugger;
+    }
 
     this.state = { supportedModules: supportedModules };
   }
@@ -32,17 +38,11 @@ export default class Home extends Component<Props> {
   render() {
 
     return (
-      <div className="container">
-        <div className="row">
-          <h1>Modules dashboard</h1>
-        </div>
-        <br />
-        <div className="row">
-        <h3>Favorite Modules</h3>
+      <div className="row">
         <table className="table">
           <thead>
             <tr>
-              <th scope="col">Name</th> 
+              <th scope="col">Name</th>
               <th scope="col">Description</th>
             </tr>
           </thead>
@@ -56,8 +56,7 @@ export default class Home extends Component<Props> {
               );
             })}
           </tbody>
-          </table>
-        </div>
+        </table>
       </div>
     );
   }
