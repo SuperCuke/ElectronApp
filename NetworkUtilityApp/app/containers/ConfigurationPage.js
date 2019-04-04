@@ -33,6 +33,7 @@ export default class ConfigurationPage extends Component<Props> {
     this.state.password = configuration.password;
     this.state.parallelSessions = configuration.parallelSessions;
   }
+
   submitForm = () => {
     debugger;
 
@@ -70,33 +71,6 @@ export default class ConfigurationPage extends Component<Props> {
           <label htmlFor="firstName">Parallel sessions</label>
           <input type="number" className="form-control" id="" placeholder="Enter Session number" value={this.state.parallelSessions} onChange={(event) => this.setState({ parallelSessions: event.target.value })} />
         </div>
-      <div className="row">
-        <h2>Favorite components</h2>
-      </div>
-      <div className="row">
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Favorite</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.Configurations.map((item, i) => {
-              return (
-                <tr key={i}>
-                  <td>{item.name}</td>
-                  <td> <input
-                    type="checkbox"
-                    checked={item.isFavorite}
-                    onChange={(event) => { item.isFavorite = event.target.checked; this.setState({ Configurations: this.state.Configurations }); }} />
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
 
       <div className="row">
         <button type="button" onClick={this.submitForm} className="btn btn-primary">Save configuration</button>
@@ -105,9 +79,30 @@ export default class ConfigurationPage extends Component<Props> {
   }
 }
 
-//class ConfigurationElement {
-//  constructor(name, isFavorite) {
-//    this.name = name;
-//    this.isFavorite = isFavorite;
-//  }
-//}
+//<div className="row">
+//  <h2>Favorite components</h2>
+//</div>
+//  <div className="row">
+//    <table className="table">
+//      <thead>
+//        <tr>
+//          <th scope="col">Name</th>
+//          <th scope="col">Favorite</th>
+//        </tr>
+//      </thead>
+//      <tbody>
+//        {this.state.Configurations.map((item, i) => {
+//          return (
+//            <tr key={i}>
+//              <td>{item.name}</td>
+//              <td> <input
+//                type="checkbox"
+//                checked={item.isFavorite}
+//                onChange={(event) => { item.isFavorite = event.target.checked; this.setState({ Configurations: this.state.Configurations }); }} />
+//              </td>
+//            </tr>
+//          );
+//        })}
+//      </tbody>
+//    </table>
+//  </div>
